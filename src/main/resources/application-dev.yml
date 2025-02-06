@@ -1,0 +1,43 @@
+## Specific configurations
+
+#  Connect Spring Boot application to the PostgreSQL database running in the postgres container.
+#  Set up MailDev for email testing, using the SMTP server at mail-dev:1025.
+#  Ensure JPA/Hibernate handles database schema updates and PostgreSQL-specific settings.
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/book_social_network
+    username: username
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: bill
+    password: bill
+    properties:
+      mail:
+        smtp:
+          trust:"*"
+          auth:true
+        starttls:
+          enable:true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+
+  application:
+    security:
+      jwt:
+        secret-key: 231090B011190E170954K210560A291087E080883S
+        expiration: 86400000
