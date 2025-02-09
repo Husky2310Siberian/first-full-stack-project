@@ -3,9 +3,10 @@ package gr.aueb.network_book.book;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-public interface IBookRepository extends JpaRepository<Book , Integer> {
+public interface IBookRepository extends JpaRepository<Book , Integer> , JpaSpecificationExecutor<Book> {
 
     @Query(""" 
                 SELECT book 
