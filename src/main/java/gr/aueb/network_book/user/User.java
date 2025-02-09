@@ -3,6 +3,7 @@ package gr.aueb.network_book.user;
 import gr.aueb.network_book.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.Builder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 
 /**
  * User implements UserDetails and Principal ,
- * because i want to use this User in whole Spring Security
+ * because I want to use this User in whole Spring Security
  */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +31,19 @@ import java.util.stream.Collectors;
 @Table(name = "_user")
 @EntityListeners(AuditingEntityListener.class)
 public class User implements UserDetails , Principal {
+
+
+
+    @Builder
+    public User(String firstname, String lastname, String email, String password, boolean accountLocked, boolean enabled, List<Role> roles) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.accountLocked = accountLocked;
+        this.enabled = enabled;
+        this.roles = roles;
+    }
 
     @Id
     @GeneratedValue
@@ -55,16 +69,16 @@ public class User implements UserDetails , Principal {
     private List<Role> roles;
 
     @Override
-    public String getName() {
-        return email;
-    }
-
-    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
       return this.roles
               .stream()
               .map(r -> new SimpleGrantedAuthority(r.getName()))
               .collect(Collectors.toList());
+    }
+
+    @Override
+    public String getName() {
+        return email;
     }
 
     @Override
@@ -94,10 +108,10 @@ public class User implements UserDetails , Principal {
 
     @Override
     public boolean isEnabled(){
-        return true;
+        return enabled;
     }
 
-    public String fullName () {
-        return firstname + " " +lastname;
+    public String getFullName() {
+        return firstname + " " + lastname;
     }
 }

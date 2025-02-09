@@ -10,10 +10,9 @@ spring:
     username: username
     password: password
     driver-class-name: org.postgresql.Driver
-
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: false
     properties:
       hibernate:
@@ -39,10 +38,10 @@ spring:
   application:
     security:
       jwt:
-        secret-key: 231090B011190E170954K210560A291087E080883S
+        secret-key: 231090B011190E170954K210560A291087E080883S231090B011190E170954K210560A291087E080883S
         expiration: 86400000
       mailing:
         frontend:
-          activation-url: http://localohost:4200/activate-account
+          activation-url: http://localhost:4200/activate-account
     server:
       port:8080

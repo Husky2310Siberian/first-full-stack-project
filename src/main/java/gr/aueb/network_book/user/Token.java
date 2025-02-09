@@ -16,9 +16,18 @@ import java.time.LocalDateTime;
 @Entity
 public class Token {
 
+    @Builder  // Add this annotation
+    public Token(String token, LocalDateTime createdAt, LocalDateTime expiresAt, User user) {
+        this.token = token;
+        this.createdAt = createdAt;
+        this.expiresAt = expiresAt;
+        this.user = user;
+    }
+
     @Id
     @GeneratedValue
     private Integer id;
+    @Column(unique = true)
     private String token;
     private LocalDateTime createdAt;
     private LocalDateTime expiresAt;
