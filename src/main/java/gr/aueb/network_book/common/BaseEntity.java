@@ -24,8 +24,8 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass // fields will be inherited by other entities
+@EntityListeners(AuditingEntityListener.class) //Spring automatically populate auditing fields (createdDate, lastModifiedDate
 public class BaseEntity {
 
     @Id

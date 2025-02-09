@@ -1,12 +1,16 @@
 package gr.aueb.network_book.book;
 
 import gr.aueb.network_book.common.BaseEntity;
+import gr.aueb.network_book.history.BookTransactionHistory;
+import gr.aueb.network_book.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 /**
  * Book entity automatically populate createdDate, lastModifiedDate, createdBy, and lastModifiedBy when persisted.
@@ -27,4 +31,13 @@ public class Book extends BaseEntity {
     private boolean archived;
     private boolean shareable;
 
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
+
+    @OneToMany(mappedBy = "book")
+    private List<Feedback> feedbacks;
+
+    @OneToMany(mappedBy = "book")
+    private List<BookTransactionHistory> histories;
 }

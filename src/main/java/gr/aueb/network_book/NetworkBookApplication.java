@@ -11,7 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EnableJpaAuditing
+//Enables JPA auditing and tells Spring to use AppAuditAware for getting the current user.
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @EnableAsync
 @Builder
 public class NetworkBookApplication {
