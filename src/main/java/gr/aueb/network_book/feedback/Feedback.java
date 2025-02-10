@@ -1,5 +1,6 @@
-package gr.aueb.network_book.book;
+package gr.aueb.network_book.feedback;
 
+import gr.aueb.network_book.book.Book;
 import gr.aueb.network_book.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

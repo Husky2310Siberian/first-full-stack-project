@@ -7,9 +7,10 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+
 public class PageResponse<T> {
 
     private List<T> content;

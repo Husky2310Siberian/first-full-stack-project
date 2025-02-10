@@ -1,6 +1,7 @@
 package gr.aueb.network_book.book;
 
 import gr.aueb.network_book.common.BaseEntity;
+import gr.aueb.network_book.feedback.Feedback;
 import gr.aueb.network_book.history.BookTransactionHistory;
 import gr.aueb.network_book.user.User;
 import jakarta.persistence.*;

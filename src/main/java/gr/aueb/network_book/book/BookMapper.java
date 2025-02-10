@@ -1,5 +1,6 @@
 package gr.aueb.network_book.book;
 
+import gr.aueb.network_book.file.FileUtils;
 import gr.aueb.network_book.history.BookTransactionHistory;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class BookMapper {
                 .archived(book.isArchived())
                 .shareable(book.isShareable())
                 .owner(book.getOwner().getFullName())
+                .cover(FileUtils.readFileFromLocation(book.getBookCover()))
                 .build();
     }
 
