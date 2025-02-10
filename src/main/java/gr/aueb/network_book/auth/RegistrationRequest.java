@@ -1,9 +1,6 @@
 package gr.aueb.network_book.auth;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,7 +25,7 @@ public class RegistrationRequest {
     @NotBlank(message = "Email is required field")
     private String email;
 
-    @Size(min = 8)
+    @Pattern(regexp = "^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\\d)(?=.*?[@$!%*?&]).{5,}$", message = "Invalid password")
     @NotEmpty(message = "Password is required field")
     @NotBlank(message = "Password is required field")
     private String password;

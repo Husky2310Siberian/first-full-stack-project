@@ -148,7 +148,7 @@ public class BookService {
         if (Objects.equals(book.getCreatedBy(), connectedUser.getName())) {
             throw new OperationNotPermittedException("You cannot borrow your own book");
         }
-        final boolean isAlreadyBorrowedByUser = transactionalRepository.isAlreadyBorrowedByUser(bookId, user.getId());
+        final boolean isAlreadyBorrowedByUser = transactionalRepository.isAlreadyBorrowedByUser(bookId, connectedUser.getName());
         if (isAlreadyBorrowedByUser) {
             throw new OperationNotPermittedException("You already borrowed this book and it is still not returned or the return is not approved by the owner");
         }
@@ -177,7 +177,7 @@ public class BookService {
             if (Objects.equals(book.getCreatedBy(), connectedUser.getName())) {
                 throw new OperationNotPermittedException("You cannot borrow or return your own book");
             }
-            BookTransactionHistory bookTransactionHistory = transactionalRepository.findByBookIdAndUserId(bookId, user.getId())
+            BookTransactionHistory bookTransactionHistory = transactionalRepository.findByBookIdAndUserId(bookId, connectedUser.getName())
                     .orElseThrow(() -> new OperationNotPermittedException("You did not borrow this book"));
             bookTransactionHistory.setReturned(true);
             return transactionalRepository.save(bookTransactionHistory).getId();
@@ -191,10 +191,10 @@ public class BookService {
                 throw new OperationNotPermittedException("The requested book cannot be borrowed since it is archived or not shareable");
             }
                 User user = ((User) connectedUser.getPrincipal());
-                if (Objects.equals(book.getCreatedBy(), connectedUser.getName())) {
+                if (!Objects.equals(book.getCreatedBy(), connectedUser.getName())) {
                     throw new OperationNotPermittedException("You cannot borrow or return your own book");
                 }
-                BookTransactionHistory bookTransactionHistory = transactionalRepository.findByBookIdAndOwnerId(bookId, user.getId())
+                BookTransactionHistory bookTransactionHistory = transactionalRepository.findByBookIdAndOwnerId(bookId, connectedUser.getName())
                         .orElseThrow(() -> new OperationNotPermittedException("The book is not returned yet"));
                 bookTransactionHistory.setReturnApproved(true);
                 return transactionalRepository.save(bookTransactionHistory).getId();

@@ -44,7 +44,7 @@ public interface IBookTransactionalRepository extends JpaRepository <BookTransac
             AND bookTransactionalHistory.book.id = :bookId
             AND bookTransactionalHistory.returnApproved = false
             """)
-    boolean isAlreadyBorrowedByUser(Integer bookId, Integer id);
+    boolean isAlreadyBorrowedByUser(@Param("bookId") Integer bookId, @Param("userId") String userId);
 
 
     @Query("""
@@ -55,7 +55,7 @@ public interface IBookTransactionalRepository extends JpaRepository <BookTransac
             AND transaction.returned = false 
             AND transaction.returnApproved = false 
             """)
-    Optional<BookTransactionHistory> findByBookIdAndUserId(Integer bookId, Integer userId);
+    Optional<BookTransactionHistory> findByBookIdAndUserId(@Param("bookId") Integer bookId, @Param("userId") String userId);
 
 
     @Query("""
@@ -66,5 +66,5 @@ public interface IBookTransactionalRepository extends JpaRepository <BookTransac
             AND transaction.returned = true 
             AND transaction.returnApproved = false 
             """)
-    Optional<BookTransactionHistory> findByBookIdAndOwnerId(Integer bookId, Integer id);
+    Optional<BookTransactionHistory> findByBookIdAndOwnerId(@Param("bookId") Integer bookId, @Param("userId") String userId);
 }

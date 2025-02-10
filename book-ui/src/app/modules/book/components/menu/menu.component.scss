@@ -1,0 +1,126 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #007bff !important; /* Bright blue for a clean look */
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #f1f1f1;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 15px;
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f8f9fa;
+}
+
+.nav-link i {
+  margin-right: 8px;
+}
+
+/* Active Link Styling */
+.nav-link.active {
+  color: #f8f9fa;
+  font-weight: bold;
+}
+
+/* Toggler Button for Mobile */
+.navbar-toggler {
+  border-color: #fff;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+/* Search Form Styling */
+.form-control {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.btn-outline-success {
+  border-color: #28a745;
+  color: #28a745;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.btn-link:hover {
+  color: #f8f9fa;
+}
+
+/* Logged-in User and Logout Button */
+form span {
+  color: white;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+form span.text-capitalize {
+  font-weight: 600;
+}
+
+form .btn-link {
+  font-size: 20px;
+  color: #f8f9fa;
+}
+
+form .btn-link:hover {
+  color: #dc3545;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin-top: 10px;
+  }
+
+  .form-control {
+    width: 150px;
+    margin-right: 5px;
+  }
+
+  .navbar-collapse {
+    margin-top: 10px;
+  }
+}

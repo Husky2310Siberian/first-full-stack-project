@@ -1,0 +1,230 @@
+/* General Body Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+h2 {
+  font-size: 28px;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+/* Form Section Styles */
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Book Details Styling */
+.d-flex .col-1 {
+  font-weight: bold;
+  color: #333;
+}
+
+.d-flex .col-11 {
+  color: #555;
+}
+
+/* Rating and Feedback Styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+  background: #007bff;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 50%;
+}
+
+textarea.form-control {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+textarea.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button Styles */
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-outline-success {
+  border-color: #28a745;
+  color: #28a745;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-link {
+  text-decoration: none;
+  color: #dc3545;
+  padding: 10px 15px;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+  color: #c82333;
+}
+
+.fa-save, .fa-paper-plane, .fa-times {
+  margin-right: 5px;
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Icons and Status */
+.fa-star.text-warning {
+  color: #f39c12;
+}
+
+.fa-paper-plane.text-primary {
+  color: #007bff;
+}
+
+.fa-paper-plane.text-success {
+  color: #28a745;
+}
+
+.fa-circle-check {
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.fa-circle-check:hover {
+  transform: scale(1.1);
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  color: #007bff;
+  background-color: transparent;
+  border: 1px solid #007bff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.page-item a {
+  text-decoration: none;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 10px;
+  }
+
+  .pagination {
+    font-size: 14px;
+  }
+
+  .page-link {
+    padding: 8px 12px;
+  }
+}

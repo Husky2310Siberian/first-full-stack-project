@@ -2,7 +2,7 @@
 
 #  Connect Spring Boot application to the PostgreSQL database running in the postgres container.
 #  Set up MailDev for email testing, using the SMTP server at mail-dev:1025.
-#  Ensure JPA/Hibernate handles database schema updates and PostgreSQL-specific settings.
+#  Ensures that JPA/Hibernate handles database schema updates and PostgreSQL-specific settings.
 
 spring:
   datasource:
